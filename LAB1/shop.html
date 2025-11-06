@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitZone | Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/elegant-icons@1.0.1/style.css">
+    <style>
+        /* Ẩn sản phẩm khi không phù hợp */
+        .product-card.hidden {
+            display: none !important;
+        }
+
+        .category-filter {
+            accent-color: #dc3545;
+            /* Màu đỏ giống theme */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container">
+            <a class="navbar-brand text-danger fw-bold" href="index.html">FITZONE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shop Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center text-danger fw-bold mb-5 text-uppercase">All Gym Products</h2>
+
+            <div class="row g-4">
+                <!-- Sidebar: Bộ lọc danh mục -->
+                <div class="col-lg-3">
+                    <div class="card border-0 shadow-sm p-3 sticky-top" style="top: 20px;">
+                        <h5 class="text-danger fw-bold mb-3">Lọc theo danh mục</h5>
+                        <form class="filter-form">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input category-filter" type="checkbox" value="protein"
+                                    id="cat-protein">
+                                <label class="form-check-label" for="cat-protein">Protein</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input category-filter" type="checkbox" value="creatine"
+                                    id="cat-creatine">
+                                <label class="form-check-label" for="cat-creatine">Creatine</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input category-filter" type="checkbox" value="pre-workout"
+                                    id="cat-preworkout">
+                                <label class="form-check-label" for="cat-preworkout">Pre-workout</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input category-filter" type="checkbox" value="bcaa"
+                                    id="cat-bcaa">
+                                <label class="form-check-label" for="cat-bcaa">BCAA</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input category-filter" type="checkbox" value="omega-3"
+                                    id="cat-omega">
+                                <label class="form-check-label" for="cat-omega">Omega-3</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input category-filter" type="checkbox" value="vitamin"
+                                    id="cat-vitamin">
+                                <label class="form-check-label" for="cat-vitamin">Vitamin</label>
+                            </div>
+                        </form>
+
+                        <!-- Nút xóa bộ lọc -->
+                        <button class="btn btn-outline-danger btn-sm mt-3 w-100" id="clear-filters">
+                            <i class="fas fa-times"></i> Xóa bộ lọc
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="col-lg-9">
+                    <div class="row g-4" id="product-container">
+
+                        <!-- Whey Protein -->
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="whey_protein">
+                                <img src="img/Whey/hydrowhey.jpg" class="card-img-top" alt="Hydro Whey"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Hydro Whey</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫350,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto" data-name="Hydro Whey"
+                                        data-price="350000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="whey_protein">
+                                <img src="img/Whey/wheyisolate.png" class="card-img-top" alt="Whey Protein Isolate"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Whey Protein Isolate</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫850,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto"
+                                        data-name="Whey Protein Isolate" data-price="850000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BCAA -->
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="bcaa">
+                                <img src="img/BCAA/BCAA1.jpg" class="card-img-top" alt="BCAA Glutamine"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">BCAA Glutamine</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫180,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto" data-name="BCAA Glutamine"
+                                        data-price="180000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="bcaa">
+                                <img src="img/BCAA/BCAA2.jpg" class="card-img-top" alt="Thực phẩm bảo vệ sức khỏe"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Thực phẩm bảo vệ sức khỏe</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫250,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto"
+                                        data-name="Thực phẩm bảo vệ sức khỏe" data-price="250000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="bcaa">
+                                <img src="img/BCAA/BCAA3.jpg" class="card-img-top" alt="BCAA Xpress nutrition"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">BCAA Xpress nutrition</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫450,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto"
+                                        data-name="BCAA Xpress nutrition" data-price="450000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="bcaa">
+                                <img src="img/BCAA/BCAA4.jpg" class="card-img-top" alt="BCCA Original"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">BCCA Original</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫750,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto" data-name="BCCA Original"
+                                        data-price="750000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pre-workout -->
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="pre-workout">
+                                <img src="img/Pre_workout/pre_workout1.jpg" class="card-img-top"
+                                    alt="Pre_workout Blueberry Lemonade" style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Pre_workout Blueberry Lemonade</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫750,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto"
+                                        data-name="Pre_workout Blueberry Lemonade" data-price="750000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="pre-workout">
+                                <img src="img/Pre_workout/pre_workout2.jpg" class="card-img-top"
+                                    alt="Pre_workout Powder" style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Pre_workout Powder</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫750,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto"
+                                        data-name="Pre_workout Powder" data-price="750000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="pre-workout">
+                                <img src="img/Pre_workout/pre_workout3.jpg" class="card-img-top" alt="ABE Pre_workout"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">ABE Pre_workout</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫750,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto" data-name="ABE Pre_workout"
+                                        data-price="750000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="pre-workout">
+                                <img src="img/Pre_workout/pre_workout4.jpg" class="card-img-top"
+                                    alt="Hot Blood Hardcore" style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Hot Blood Hardcore</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫750,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto"
+                                        data-name="Hot Blood Hardcore" data-price="750000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Creatine -->
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="creatine">
+                                <img src="img/Creatine/creatine1.jpg" class="card-img-top" alt="Creatine Powder"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Creatine Powder</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫750,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto" data-name="Creatine Powder"
+                                        data-price="750000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="creatine">
+                                <img src="img/Creatine/creatine2.jpg" class="card-img-top"
+                                    alt="Nutrition Creatine Powder" style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Nutrition Creatine Powder</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫750,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto"
+                                        data-name="Nutrition Creatine Powder" data-price="750000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Omega-3 -->
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="omega-3">
+                                <img src="img/Omega3/omega31.jpg" class="card-img-top" alt="Omega 3 Fish Oil"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Omega 3 Fish Oil</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫750,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto" data-name="Omega 3 Fish Oil"
+                                        data-price="750000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vitamin -->
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="vitamin">
+                                <img src="img/Vitamin/vitamind31.jpg" class="card-img-top" alt="Mulivitamin"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Mulivitamin</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫750,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto" data-name="Mulivitamin"
+                                        data-price="750000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Protein -->
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card product-card h-100" data-category="protein">
+                                <img src="img/Whey/protein.jpg" class="card-img-top" alt="Protein"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h6 class="card-title mb-2">Protein</h6>
+                                    <p class="price text-danger fw-bold mb-3">₫750,000</p>
+                                    <button class="btn btn-sm btn-danger add-cart mt-auto" data-name="Protein"
+                                        data-price="750000">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-light text-center py-4">
+        <h4 class="text-danger fw-bold">FITZONE</h4>
+        <p>Premium Gym Apparel & Accessories | Since 2024</p>
+        <small>© 2025 FitZone. All rights reserved.</small>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Lọc Sản Phẩm -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
