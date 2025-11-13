@@ -1,0 +1,88 @@
+    /* Biến chung */
+:root {
+    --brand-red: #d62828;
+    --bg-dark: #0b0b0b;
+    --muted: #6c757d;
+}
+
+/* base */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    color: #222;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* topbar */
+.topbar {
+    font-size: 0.9rem;
+}
+
+/* navbar */
+.logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #fff;
+}
+
+.navbar {
+    background: var(--bg-dark);
+}
+
+/* footer */
+footer {
+    background: #070707;
+    color: #ddd;
+}
+
+.logo-footer {
+    width: 120px;
+}
+
+/* responsive base */
+@media(max-width:768px) {
+    .hero-section {
+        min-height: 220px;
+    }
+}
+
+/* =========================================================================
+   BỔ SUNG: STYLES CHUNG HỖ TRỢ (common.css)
+   ========================================================================= */
+
+/* UTILITY: Màu sắc thương hiệu */
+.text-brand-red {
+    color: var(--brand-red) !important;
+}
+
+/* UTILITY: Nút bấm (Buttons) */
+/* Cần ở đây để các nút trên tất cả các trang (kể cả about.html) đều có màu đỏ chủ đạo */
+.btn-primary, .btn-danger {
+    background-color: var(--brand-red) !important;
+    border-color: var(--brand-red) !important;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+.btn-primary:hover, .btn-danger:hover {
+    background-color: #b82323 !important;
+    border-color: #b82323 !important;
+    transform: translateY(-1px);
+}
+/* DEBUGGING: Xóa cache */
+body::after {
+    content: "v1.3"; 
+    display: none;
+}

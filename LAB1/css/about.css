@@ -1,0 +1,73 @@
+/* =========================================================================
+   STYLES ĐẶC TRƯNG CHO TRANG ABOUT US (about.css)
+   ========================================================================= */
+
+/* 1. SECTION BANNER GIỚI THIỆU */
+
+/* Áp dụng nền nhẹ hơn cho section này - class này có trong about.html */
+.bg-light-about {
+    background-color: #f5f5f5; 
+}
+
+/* Tùy chỉnh tiêu đề H1 trong section Banner */
+.bg-light-about .display-4 {
+    border-bottom: 3px solid var(--brand-red); /* Viền đỏ dưới tiêu đề H1 */
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+/* 2. SECTION CÂU CHUYỆN */
+.row h2 {
+    color: var(--bg-dark); /* Sử dụng màu tối của bạn cho tiêu đề */
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* 3. CARD GIÁ TRỊ CỐT LÕI */
+
+/* Khung card chung core-value-card */
+.core-value-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-bottom: 5px solid var(--brand-red); /* Viền màu đỏ ở dưới */
+    height: 100%;
+}
+
+.core-value-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(214, 40, 40, 0.2); 
+}
+
+/* Icon trong Card */
+.core-value-card i {
+    color: var(--brand-red);
+    padding: 15px;
+    background-color: #fff0f0; 
+    border-radius: 50%;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.core-value-card h5 {
+    color: var(--secondary-color, #222);
+    margin-top: 15px;
+    font-size: 1.15rem;
+}
+
+/* 4. SECTION KÊU GỌI HÀNH ĐỘNG */
+
+.py-5.text-center h3 {
+    color: var(--brand-red);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.py-5.text-center .btn-lg {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border-radius: 50px;
+}

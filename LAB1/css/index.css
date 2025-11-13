@@ -1,0 +1,58 @@
+/* hero section */
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.hero-text h2 {
+    color: #fff;
+}
+
+.hero-text p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* categories card */
+.cat-card img {
+    height: 140px;
+    object-fit: cover;
+}
+
+.cat-card .card-body {
+    padding: .5rem;
+}
+
+/* dropdown gợi ý nhỏ gọn */
+.suggestions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 150px;       /* chiều cao vừa phải */
+    overflow-y: auto;
+    position: absolute;
+    top: 78%;               /* ngay dưới input */
+    left: 58%;
+    width: 30%;             /* bằng input */
+    background: #fff;
+    z-index: 1000;
+    display: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-size: 0.875rem;     /* nhỏ hơn text input */
+}
+
+.suggestions-list li {
+    padding: 6px 10px;       /* nhỏ gọn */
+    cursor: pointer;
+}
+
+.suggestions-list li:hover {
+    background-color: #f0f0f0;
+}

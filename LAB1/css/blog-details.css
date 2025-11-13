@@ -1,0 +1,9 @@
+.blog-content h1, .blog-content p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.blog-content img {
+    max-width: 100%;
+    border-radius: 8px;
+}

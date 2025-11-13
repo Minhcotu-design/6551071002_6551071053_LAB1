@@ -235,34 +235,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // === 7. LỌC SẢN PHẨM (chỉ shop.html) ===
     const isShopPage = document.querySelector('#product-container') !== null;
-    if (isShopPage) {
-        const checkboxes = document.querySelectorAll('.category-filter');
-        const products = document.querySelectorAll('.product-card');
-        const clearBtn = document.getElementById('clear-filters');
+    if (!isShopPage) return;
 
-        function filterProducts() {
-            const selected = Array.from(checkboxes)
-                .filter(cb => cb.checked)
-                .map(cb => cb.value);
+    const checkboxes = document.querySelectorAll('.category-filter');
+    const products = document.querySelectorAll('#product-container .col-lg-3'); // lấy thẳng col để ẩn
+    const clearBtn = document.getElementById('clear-filters');
 
-            products.forEach(product => {
-                const cats = product.getAttribute('data-category')?.split(' ').filter(Boolean) || [];
-                if (selected.length === 0) {
-                    product.classList.remove('hidden');
-                } else {
-                    const match = selected.some(cat => cats.includes(cat));
-                    product.classList.toggle('hidden', !match);
-                }
-            });
-        }
+    function filterProducts() {
+        const selected = Array.from(checkboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
 
-        checkboxes.forEach(cb => cb.addEventListener('change', filterProducts));
-        clearBtn?.addEventListener('click', () => {
-            checkboxes.forEach(cb => cb.checked = false);
-            filterProducts();
+        products.forEach(col => {
+            const card = col.querySelector('.product-card');
+            const cats = card.dataset.category?.split(' ').filter(Boolean) || [];
+
+            if (selected.length === 0) {
+                col.style.display = 'block';
+            } else {
+                const match = selected.some(cat => cats.includes(cat));
+                col.style.display = match ? 'block' : 'none';
+            }
         });
-        filterProducts();
     }
+
+    checkboxes.forEach(cb => cb.addEventListener('change', filterProducts));
+
+    clearBtn?.addEventListener('click', () => {
+        checkboxes.forEach(cb => cb.checked = false);
+        filterProducts();
+    });
+
+    filterProducts(); // khởi tạo
+
 
     // === 8. KHỞI TẠO ===
     updateCartSum();
@@ -527,4 +532,79 @@ if (isCheckoutPage) {
 
     // HIỂN THỊ NGAY
     renderCheckout();
+}
+
+// Danh sách sản phẩm/danh mục gợi ý
+const products = [
+    "Whey Protein",
+    "BCAA",
+    "Creatine",
+    "Omega-3",
+    "Vitamin",
+    "Pre-Workout"
+];
+
+const searchInput = document.getElementById('search-input');
+const suggestions = document.getElementById('suggestions');
+const searchForm = document.getElementById('search-form');
+
+if (searchInput && suggestions) {
+    // Hiển thị gợi ý dropdown
+    searchInput.addEventListener('input', function () {
+        const value = this.value.toLowerCase();
+        suggestions.innerHTML = '';
+
+        if (value) {
+            const filtered = products.filter(product => product.toLowerCase().includes(value));
+            filtered.forEach(product => {
+                const li = document.createElement('li');
+                li.textContent = product;
+                li.addEventListener('click', () => {
+                    searchInput.value = product;
+                    suggestions.innerHTML = '';
+                    suggestions.style.display = 'none';
+                });
+                suggestions.appendChild(li);
+            });
+
+            suggestions.style.display = filtered.length ? 'block' : 'none';
+        } else {
+            suggestions.style.display = 'none';
+        }
+    });
+
+    // Ẩn dropdown khi click ra ngoài
+    document.addEventListener('click', function (e) {
+        if (!searchInput.contains(e.target) && !suggestions.contains(e.target)) {
+            suggestions.style.display = 'none';
+        }
+    });
+
+    // Khi submit form search
+    searchForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query) {
+            // Chuyển tới shop.html với query làm tham số URL
+            const url = `shop.html?search=${encodeURIComponent(query)}`;
+            window.location.href = url;
+        }
+    });
+}
+
+
+const params = new URLSearchParams(window.location.search);
+const searchQuery = params.get('search')?.toLowerCase();
+
+if (searchQuery) {
+    // Ẩn các sản phẩm không thuộc danh mục searchQuery
+    const productCards = document.querySelectorAll('.product');
+    productCards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        if (!title.includes(searchQuery)) {
+            card.style.display = 'none';
+        } else {
+            card.style.display = 'block';
+        }
+    });
 }

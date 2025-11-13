@@ -1,0 +1,100 @@
+/* --- 1. STYLING CHO CÁC BLOG CARD (BÀI VIẾT) --- */
+
+/* Thiết lập khung card */
+.card.shadow-sm {
+    border-radius: 8px; /* Bo tròn góc */
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #eee; /* Viền mỏng cho cảm giác sạch sẽ */
+}
+
+/* Hiệu ứng nhấc nhẹ khi rê chuột qua card */
+.card.shadow-sm:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Đảm bảo hình ảnh có chiều cao cố định và được cắt vừa vặn */
+.blog-card-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Tiêu đề bài viết trong Card */
+.card-title {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    color: var(--bg-dark, #222);
+}
+
+/* Link "Đọc thêm" */
+.stretched-link.text-danger {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* Tiêu đề Sidebar Card (Danh mục/Bài viết phổ biến) */
+.card-header.bg-danger {
+    /* Đảm bảo màu brand-red được áp dụng nếu không dùng common.css */
+    background-color: var(--brand-red) !important; 
+    border-radius: 8px 8px 0 0 !important;
+    text-transform: uppercase;
+}
+.card-header.bg-dark {
+    /* Dùng màu tối cho tiêu đề Bài viết phổ biến */
+    background-color: var(--bg-dark) !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+/* Danh mục Blog (List group items) */
+.list-group-item {
+    font-size: 0.95rem;
+}
+
+/* Style tùy chỉnh cho Item Danh mục */
+.sidebar-item {
+    border-left: 3px solid var(--brand-red); /* Viền đỏ thương hiệu */
+    padding-left: 15px; 
+    margin-bottom: 5px;
+    transition: background-color 0.2s;
+    border-radius: 0 5px 5px 0; /* Bo tròn bên phải */
+}
+
+.sidebar-item:hover {
+    background-color: #f8f9fa; /* Nền nhẹ khi hover */
+}
+
+/* Bài viết phổ biến - Tiêu đề và thời gian */
+.list-group-item h6 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.list-group-item:hover h6 {
+    color: var(--brand-red);
+}
+
+
+
+.pagination .page-item a.page-link {
+    border-radius: 5px !important;
+    margin: 0 3px;
+    color: var(--bg-dark);
+    border-color: #dee2e6;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* Trang đang hoạt động (Active) */
+.pagination .page-item.active .page-link {
+    background-color: var(--brand-red) !important;
+    border-color: var(--brand-red) !important;
+    color: white !important;
+}
+
+/* Hiệu ứng hover cho các trang không active */
+.pagination .page-item:not(.active) .page-link:hover {
+    background-color: #f8d7da; /* Màu hồng nhạt */
+    color: var(--brand-red) !important;
+    border-color: #f8d7da;
+}

@@ -1,0 +1,40 @@
+/* products */
+.product {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+}
+
+.product:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.product img {
+    height: 160px;
+    object-fit: cover;
+}
+
+.product-card img {
+    transition: transform 0.3s;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* promo */
+.promo {
+    background: var(--brand-red);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* responsive shop */
+@media(max-width:768px) {
+    .product img {
+        height: 180px;
+    }
+}
